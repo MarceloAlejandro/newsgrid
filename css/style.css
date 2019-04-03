@@ -1,0 +1,435 @@
+/* style navbar */
+/* Using variables */
+:root {
+  --primary-color: #c72727;
+  --secondary-color: #f99500;
+  --light-color: #f3f3f3;
+  --dark-color: #333;
+  --max-width: 1100px;
+}
+
+.category {
+  --sports-color: #f99500;
+  --ent-color: #a66bbe;
+  --tech-color: #009cff;
+}
+
+/* core styling */
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  line-height: 1.5;
+  background: var(--light-color);
+}
+
+a {
+  color: #333;
+  /* removing the underlines */
+  text-decoration: none;
+}
+
+ul {
+  /* removing the bullet points */
+  list-style: none;
+
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
+img {
+  /* I want 100% of the container */
+  width: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Staatliches', cursive;
+  margin-bottom: .55rem;
+  line-height: 1.3;
+}
+
+/* ------------------------------------------- */
+
+/* Utility */
+.container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding: 0 2rem;
+
+  /* let's do overflow hidden so that it always shows the content within */
+  overflow: hidden;
+
+}
+
+.category {
+  display: inline-block;
+  color: #fff;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  padding: 0.4rem 0.6rem;
+  border-radius: 15px;
+  margin-bottom: 0.5rem;
+}
+
+.category-sports {
+  background: var(--sports-color);
+}
+
+.category-ent {
+  background: var(--ent-color);
+}
+
+.category-tech {
+  background: var(--tech-color);
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: var(--dark-color);
+  color: #fff;
+  padding: 0.5rem 1.5rem;
+}
+
+.btn-light {
+  background: var(--light-color)
+}
+
+.btn-primary {
+  background: var(--primary-color)
+}
+
+.btn-secondary {
+  background: var(--secondary-color)
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.card {
+  background: #fff;
+  padding: 1rem;
+}
+
+.bg-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+
+.bg-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.bg-secondary {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+
+.bg-dark h1,
+.bg-dark h2,
+.bg-dark h3,
+.bg-dark a,
+.bg-primary h1,
+.bg-primary h2,
+.bg-primary h3,
+.bg-primary a,
+.bg-secondary h1,
+.bg-secondary h2,
+.bg-secondary h3,
+.bg-secondary a {
+  color: #fff;
+}
+
+
+.py-1 { padding: 1.5rem 0 }
+.py-2 { padding: 2rem 0 }
+.py-3 { padding: 3rem 0 }
+.p-1 { padding: 1.5rem }
+.p-2 { padding: 2rem }
+.p-3 { padding: 3rem }
+
+.l-heading {
+  font-size: 3rem;
+}
+
+
+/* footer list items */
+.list li {
+  padding: .5rem 0;
+  border-bottom: #555 dotted 1px;
+  width: 90%;
+}
+
+.list li a:hover {
+  color: var(--secondary-color) !important;
+}
+
+/* ----------------------------------------- */
+/* Inner page grid container - About */
+.page-container {
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+
+  /* lets add some space between them */
+  margin: 2rem 0;
+  grid-gap: 1.5rem;
+
+
+}
+
+/* targeting the main element - article */
+.page-container > *:first-child {
+  /* lets span it across rows - it spans down three */
+  grid-row: 1 / span 3;
+
+}
+
+
+/* ---------------------------------------- */
+
+
+/* Navigation */
+#main-nav {
+  background: #fff;
+  /* position sticky */
+  position: sticky;
+  top: 0;
+
+  /* Now I always wanted to be on top.
+So I'm going to add a z index of 2 and you'll see y later on. */
+  z-index: 2;
+
+
+
+}
+
+/*So let's make the container the actual grid item. */
+#main-nav .container {
+  display: grid;
+  grid-template-columns: 6fr 3fr 2fr;
+  padding: 1rem;
+  align-items: center;
+}
+
+#main-nav .logo {
+  width: 180px;
+}
+
+/* just for the list items, we use flex */
+#main-nav ul {
+  /* So I wanted to go all the way over to the end so we can use justify self and and that'll push it all
+the way over. */
+  justify-self: end;
+
+
+  /* So I want to display flex and if I do that automatically the links will go into a flex row. */
+  display: flex;
+
+}
+
+
+/* for the links themselves */
+#main-nav ul li a {
+  padding: 0.75rem;
+  font-weight: bold;
+
+}
+
+#main-nav ul li a.current {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+#main-nav ul li a:hover {
+  background: var(--light-color);
+  color: var(--dark-color);
+}
+
+#main-nav .social {
+  justify-self: center;
+
+}
+
+#main-nav .social i {
+  color: #777;
+  margin-right: .5rem;
+}
+
+/* --------------------------------- */
+/* Showcase */
+#showcase {
+  color: #fff;
+  background: #333;
+
+  /* the before pseudo selector is position absolute
+  if you position something absolute, it's positioned inside the first relative container
+    
+  */
+
+  padding: 2rem;
+  position: relative;
+}
+
+
+#showcase:before {
+  content: '';
+  background: url(../img/featured.jpg) no-repeat center center/cover;
+
+
+  /*Let's position this absolute because we're basically laying this on top of the showcase.  */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+
+}
+
+#showcase .showcase-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  /* lets center i horizontally */
+  justify-content: center;
+
+  /* lets center it vertically */
+  align-items: center;
+
+  /* let's make the height of the showcase half the viewport  - so 50vh*/
+  height: 50vh;
+
+
+
+}
+
+/* lets make the text be on top of the image */
+#showcase .showcase-content {
+  z-index: 1;
+}
+
+#showcase .showcase-content p {
+  margin-bottom: 1rem;
+}
+
+
+
+/* ------------------------------------------- */
+/* Home Articles */
+#home-articles .articles-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+
+}
+
+/* grabbing the first article
+#home-articles .articles-container article:first-child or
+
+*/
+
+/* but lets make it more flexible by using an * meaning any element - I only want the direct child  so I'm using the > (the greater than sign)*/
+
+#home-articles .articles-container > *:first-child,
+#home-articles .articles-container > *:last-child
+ {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  align-items: center;
+  grid-column: 1 / span 2;
+
+}
+
+
+#home-articles .articles-container > *:last-child {
+  grid-column: 2 / 2 span;
+}
+
+
+#article .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #eee;
+  padding: 0.5rem;
+}
+
+#article .meta .category {
+  margin-top: 0.4rem;
+}
+
+
+/* Footer */
+#main-footer {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+#main-footer img {
+  width: 150px;
+}
+
+/* lets make all tha links to be white */
+#main-footer a {
+  color: #fff;
+}
+
+#main-footer .footer-container {
+  display: grid;
+
+  /* lets repeat 4 times, 1 fraction */
+  grid-template-columns: repeat(4, 1fr);
+
+  /* spread the divs apart / padding */
+  grid-gap: 1.5rem;
+}
+
+
+/* targeting last direct element -  div, number 5 */
+#main-footer .footer-container > *:last-child {
+  background: #444;
+
+  /* span it all the way across */
+  grid-column: 1 /span 4;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.75rem;
+
+
+}
+
+/* lets target the email form */
+#main-footer .footer-container input[type='email'] {
+  width: 90%;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* lets target the submit form */
+
+#main-footer .footer-container input[type='submit'] {
+  width: 90%;
+}
